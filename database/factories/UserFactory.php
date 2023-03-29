@@ -18,7 +18,7 @@ class UserFactory extends Factory
     public function definition(): array
     {
         $today = \Carbon\Carbon::now();
-        $randNum = rand(50, 29000);
+        $randNum = rand(3650, 29000);
         $randDate = $today->subDays($randNum);
 
         $year = $randDate->year;
