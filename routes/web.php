@@ -17,8 +17,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/now', function () {
-    $today = \Carbon\Carbon::now();
-    dd($today->year);
-    return view('welcome');
-});
+Route::resource('/users', 'App\Http\Controllers\UserController');
