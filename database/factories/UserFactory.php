@@ -40,7 +40,7 @@ class UserFactory extends Factory
             'address' => mb_substr($this->faker->address, 0, 50, "utf-8"),
             'email' => substr($this->faker->unique()->safeEmail, 0, 50),
             'url' => substr($this->faker->url, 0, 50),
-            'comment' => mb_substr($this->faker->realText, 0, 500, "utf-8"),
+            'comment' => mb_substr($this->faker->realText, 0, 100, "utf-8"),
         ];
     }
 
