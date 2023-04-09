@@ -18,3 +18,5 @@ Route::get('/', function () {
 });
 
 Route::resource('/users', 'App\Http\Controllers\UserController');
+
+Route::get('/test', 'App\Http\Controllers\TestController@cardtest');
