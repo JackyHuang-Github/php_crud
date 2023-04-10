@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
@@ -30,21 +31,69 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $user = new User;
-        $user->account = $user->input('account');
-        $user->password = $user->input('password');
-        $user->name = $user->input('name');
-        $user->sex = $user->input('sex');
-        $user->year = $user->input('year');
-        $user->year = $user->input('month');
-        $user->year = $user->input('day');
-        $user->telephone = $user->input('telephone');
-        $user->cellphone = $user->input('cellphone');
-        $user->address = $user->input('address');
-        $user->email = $user->input('email');
-        $user->url = $user->input('url');
-        $user->comment = $user->input('comment');
+        $validator = Validator::make($request->all(), [
+            'account' => 'bail | required | string | max:10 | unique:users',
+            'password' => 'required | string | max:10',
+            'name' => 'required | string | max:10',
+            'sex' => 'required | string | max:2',
+            'year' => 'required | integer',
+            'month' => 'required | integer',
+            'day' => 'required | integer',
+            'telephone' => 'required | string | max:20',
+            'cellphone' => 'required | string | max:20',
+            'address' => 'required | string | max:50',
+            'email' => 'required | string | max:50',
+            'url' => 'required | string | max:50',
+            'comment' => 'required | string'
+        ]);
+
+        // echo "run in UserController";
+        // dd($validator);
+
+        if($validator->fails()) {
+            return redirect('users')->withErrors($validator)->withInput();
+        }
+
+        $user = $request->user();
+        $user->account = $request->input('account');
+        $user->password = $request->input('password');
+        $user->name = $request->input('name');
+        $user->sex = $request->input('sex');
+        $user->year = $request->input('year');
+        $user->year = $request->input('month');
+        $user->year = $request->input('day');
+        $user->telephone = $request->input('telephone');
+        $user->cellphone = $request->input('cellphone');
+        $user->address = $request->input('address');
+        $user->email = $request->input('email');
+        $user->url = $request->input('url');
+        $user->comment = $request->input('comment');
         $user->save();
+
+        // $input = [
+        //     'account' => $request->account,
+        //     'password' => $request->password,
+        //     'name' => $request->name,
+        //     'sex' => $request->sex,
+        //     'year' => $request->year,
+        //     'month' => $request->month,
+        //     'day' => $request->day,
+        //     'telephone' => $request->telephone,
+        //     'cellphone' => $request->cellphone,
+        //     'address' => $request->address,
+        //     'email' => $request->email,
+        //     'url' => $request->url,
+        //     'comment' => $request->comment
+        // ];
+
+        // echo "Before create";
+        // dd($input);
+
+        // User::create($input);
+
+        // echo "After create";
+        // dd($input);
+
         return redirect(route('users.index'));
     }
 

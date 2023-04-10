@@ -17,7 +17,7 @@
 
         <form>
             <div class="row form-group">
-                <div class="col-2">
+                <div class="col-2 px-3 g-2">
                     <label for="id" class="form-label">id</label>
                 </div>
                 <div class="col-10">
@@ -26,7 +26,7 @@
             </div>
 
             <div class="row form-group">
-                <div class="col-2">
+                <div class="col-2 px-3 g-2">
                     <label for="account" class="form-label">帳號</label>
                 </div>
                 <div class="col-10">
@@ -35,7 +35,7 @@
             </div>
 
             <div class="row form-group">
-                <div class="col-2">
+                <div class="col-2 px-3 g-2">
                     <label for="password" class="form-label">密碼</label>
                 </div>
                 <div class="col-10">
@@ -44,7 +44,7 @@
             </div>
             
             <div class="row form-group">
-                <div class="col-2">
+                <div class="col-2 px-3 g-2">
                     <label for="name" class="form-label">姓名</label>
                 </div>
                 <div class="col-10">
@@ -52,13 +52,13 @@
                 </div>
             </div>
 
-            <div class="row form-group">
-                <div class="col-2">
+            <div class="row form-group pt-1">
+                <div class="col-2 px-3">
                     <label for="sex" class="form-label">性別</label>
                 </div>
                 <div class="col-10">
                     <div class="row">
-                        <div class="col-3">
+                        <div class="col-4">
                             <div class="row">
                                 <div class="col-6">
                                     <div class="form-check">
@@ -74,24 +74,107 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-9"></div>
+                        <div class="col-8"></div>
                     </div>
                 </div>
             </div>
 
             <div class="row form-group">
-                <div class="row form-group">
-                    <div class="col-2">
-                        <label for="email" class="form-label">電子郵件</label>
+                <div class="col-2 px-3 g-1">
+                    <label for="year" class="form-label">生日</label>
+                </div>
+                <div class="col-10">
+                    <div class="row">
+                        <div class="col-3">
+                            <div><input type="numeric" class="form-control" id="year"></div>
+                        </div>
+
+                        <div class="col-4">
+                            <div class="row px-3">
+                                <div class="col-3 g-1">
+                                    <label for="month" class="form-label">/</label>
+                                </div>
+                                <div class="col-9 px-0">
+                                    <input type="numeric" class="form-control" id="month">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="row px-3">
+                                <div class="col-3 g-1">
+                                    <label for="day" class="form-label">/</label>
+                                </div>
+                                <div class="col-9 px-0">
+                                    <input type="numeric" class="form-control" id="day">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-1"></div>
                     </div>
-                    <div class="col-10">
-                        <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
-                    </div>                
                 </div>
             </div>
 
-            <hr />
-            <button type="submit" class="btn btn-primary">傳送</button>
+            <div class="row form-group">
+                <div class="col-2 px-3 g-2">
+                    <label for="telephone" class="form-label">電話</label>
+                </div>
+                <div class="col-10">
+                    <input type="text" class="form-control" id="telephone">
+                </div>
+            </div>
+
+            <div class="row form-group">
+                <div class="col-2 px-3 g-2">
+                    <label for="cellphone" class="form-label">手機</label>
+                </div>
+                <div class="col-10">
+                    <input type="text" class="form-control" id="cellphone">
+                </div>
+            </div>
+
+            <div class="row form-group">
+                <div class="col-2 px-3 g-2">
+                    <label for="address" class="form-label">地址</label>
+                </div>
+                <div class="col-10">
+                    <input type="text" class="form-control" id="address">
+                </div>
+            </div>
+
+            <div class="row form-group">
+                <div class="col-2 px-2 g-2">
+                    <label for="email" class="form-label">電子郵件</label>
+                </div>
+                <div class="col-10">
+                    <input type="email" class="form-control" id="email">
+                </div>                
+            </div>
+
+            <div class="row form-group">
+                <div class="col-2 px-3 g-2">
+                    <label for="url" class="form-label">網址</label>
+                </div>
+                <div class="col-10">
+                    <input type="url" class="form-control" id="url">
+                </div>                
+            </div>
+
+            <div class="row form-group">
+                <div class="col-2 px-3 g-2">
+                    <label for="comment" class="form-label">備註</label>
+                </div>
+                <div class="col-10">
+                    <input type="textarea" rows="4" cols="50" class="form-control" id="comment">
+                </div>                
+            </div>
+
+            <!-- <hr /> -->
+
+            <div class="row">
+                <div class="col">
+                    <button type="submit" class="btn btn-primary">傳送</button>
+                </div>
+            </div>
         </form>
     </div>
 
