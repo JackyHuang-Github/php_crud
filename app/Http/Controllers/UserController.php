@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
 use Illuminate\Support\Facades\Validator;
 
@@ -30,13 +31,13 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(UserRequest $request)
+    public function store(Request $request)
     {
         echo 'store'; 
-        return $request->all();
+        // dd($request->all());
 
         $validator = Validator::make($request->all(), [
-            'account' => 'bail | required | string | max:10 | unique:users',
+            'account' => 'bail | required | string | max:10',
             'password' => 'required | string | max:10',
             'name' => 'required | string | max:10',
             'sex' => 'required | string | max:2',
@@ -71,12 +72,12 @@ class UserController extends Controller
         // $user->comment = $request->comment;
         // $user->save();
 
-        dd($request->user());
+        // dd($request->user());
         $inputs = $request->all();
         dd($inputs);
         $input = [
-            'account' => $inputs['account'],
             'password' => $request->password,
+            'account' => $inputs['account'],
             'name' => $request->name,
             'sex' => $request->sex,
             'year' => $request->year,
@@ -96,7 +97,7 @@ class UserController extends Controller
         User::create($input);
 
         // echo "After create";
-        dd($input);
+        // dd($input);
 
         return redirect(route('users'));
     }
