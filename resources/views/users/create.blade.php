@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col">
                 <div class="card mt-3 mx-auto border-danger" style="width:500px;">
-                    @include('users.form') 
+                    @include('users._form') 
                 </div>
             </div>
         </div>
