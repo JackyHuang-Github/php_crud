@@ -17,5 +17,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('/users', 'App\Http\Controllers\UserController');
+Route::resource('users', 'App\Http\Controllers\UserController');
 
+// Route::namespace('App\Http\Controllers')->group(function() {
+//     Route::get('users', 'UserController@index');
+//     Route::get('users/create', 'UserController@create');
+//     Route::post('users/store', 'UserController@store');
+// });

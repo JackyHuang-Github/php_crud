@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use App\Http\Requests\UserRequest;
+// use App\Http\Requests\UserRequest;
 use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
@@ -36,21 +36,21 @@ class UserController extends Controller
         echo 'store'; 
         // dd($request->all());
 
-        $validator = Validator::make($request->all(), [
-            'account' => 'bail | required | string | max:10',
-            'password' => 'required | string | max:10',
-            'name' => 'required | string | max:10',
-            'sex' => 'required | string | max:2',
-            'year' => 'required | integer',
-            'month' => 'required | integer',
-            'day' => 'required | integer',
-            'telephone' => 'required | string | max:20',
-            'cellphone' => 'required | string | max:20',
-            'address' => 'required | string | max:50',
-            'email' => 'required | string | max:50',
-            'url' => 'required | string | max:50',
-            'comment' => 'required | string'
-        ]);
+        // $validator = Validator::make($request->all(), [
+        //     'account' => 'bail | required | string | max:10',
+        //     'password' => 'required | string | max:10',
+        //     'name' => 'required | string | max:10',
+        //     'sex' => 'required | string | max:2',
+        //     'year' => 'required | integer',
+        //     'month' => 'required | integer',
+        //     'day' => 'required | integer',
+        //     'telephone' => 'required | string | max:20',
+        //     'cellphone' => 'required | string | max:20',
+        //     'address' => 'required | string | max:50',
+        //     'email' => 'required | string | max:50',
+        //     'url' => 'required | string | max:50',
+        //     'comment' => 'required | string'
+        // ]);
 
         // if($validator->fails()) {
         //     return redirect('users')->withErrors($validator)->withInput();
@@ -72,29 +72,29 @@ class UserController extends Controller
         // $user->comment = $request->comment;
         // $user->save();
 
-        // dd($request->user());
+        // dd($request->input('name'));
         $inputs = $request->all();
         dd($inputs);
-        $input = [
-            'password' => $request->password,
-            'account' => $inputs['account'],
-            'name' => $request->name,
-            'sex' => $request->sex,
-            'year' => $request->year,
-            'month' => $request->month,
-            'day' => $request->day,
-            'telephone' => $request->telephone,
-            'cellphone' => $request->cellphone,
-            'address' => $request->address,
-            'email' => $request->email,
-            'url' => $request->url,
-            'comment' => $request->comment
-        ];
+        // $input = [
+        //     'account' => $inputs['account'],
+        //     'password' => $request->password,
+        //     'name' => $request->name,
+        //     'sex' => $request->sex,
+        //     'year' => $request->year,
+        //     'month' => $request->month,
+        //     'day' => $request->day,
+        //     'telephone' => $request->telephone,
+        //     'cellphone' => $request->cellphone,
+        //     'address' => $request->address,
+        //     'email' => $request->email,
+        //     'url' => $request->url,
+        //     'comment' => $request->comment
+        // ];
 
         // echo "Before create";
         // dd($input);
 
-        User::create($input);
+        // User::create($input);
 
         // echo "After create";
         // dd($input);
@@ -121,7 +121,7 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UserRequest $request, User $user)
+    public function update(Request $request, User $user)
     {
         $user->account = $request->input('account');
         $user->password = $request->input('password');
