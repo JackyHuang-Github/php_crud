@@ -59,8 +59,8 @@ class UserController extends Controller
         $user->name = $request->name;
         $user->sex = $request->sex;
         $user->year = $request->year;
-        $user->year = $request->month;
-        $user->year = $request->day;
+        $user->month = $request->month;
+        $user->day = $request->day;
         $user->telephone = $request->telephone;
         $user->cellphone = $request->cellphone;
         $user->address = $request->address;
