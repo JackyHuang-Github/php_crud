@@ -33,9 +33,6 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        echo 'store'; 
-        // dd($request->all());
-
         // $validator = Validator::make($request->all(), [
         //     'account' => 'bail | required | string | max:10',
         //     'password' => 'required | string | max:10',
@@ -56,50 +53,40 @@ class UserController extends Controller
         //     return redirect('users')->withErrors($validator)->withInput();
         // }
 
-        // $user = $request->user();
-        // $user->account = $request->account;
-        // $user->password = $request->password;
-        // $user->name = $request->name;
-        // $user->sex = $request->sex;
-        // $user->year = $request->year;
-        // $user->year = $request->month;
-        // $user->year = $request->day;
-        // $user->telephone = $request->telephone;
-        // $user->cellphone = $request->cellphone;
-        // $user->address = $request->address;
-        // $user->email = $request->email;
-        // $user->url = $request->url;
-        // $user->comment = $request->comment;
-        // $user->save();
+        $user = new User;
+        $user->account = $request->account;
+        $user->password = $request->password;
+        $user->name = $request->name;
+        $user->sex = $request->sex;
+        $user->year = $request->year;
+        $user->year = $request->month;
+        $user->year = $request->day;
+        $user->telephone = $request->telephone;
+        $user->cellphone = $request->cellphone;
+        $user->address = $request->address;
+        $user->email = $request->email;
+        $user->url = $request->url;
+        $user->comment = $request->comment;
+        $user->save();
 
-        // dd($request->input('name'));
-        $inputs = $request->all();
-        dd($inputs);
         // $input = [
-        //     'account' => $inputs['account'],
-        //     'password' => $request->password,
-        //     'name' => $request->name,
-        //     'sex' => $request->sex,
-        //     'year' => $request->year,
-        //     'month' => $request->month,
-        //     'day' => $request->day,
-        //     'telephone' => $request->telephone,
-        //     'cellphone' => $request->cellphone,
-        //     'address' => $request->address,
-        //     'email' => $request->email,
-        //     'url' => $request->url,
-        //     'comment' => $request->comment
+        //     'account' => $request->input('account'),
+        //     'password' => $request->input('password'),
+        //     'name' => $request->input('name'),
+        //     'sex' => $request->input('sex'),
+        //     'year' => $request->input('year'),
+        //     'month' => $request->input('month'),
+        //     'day' => $request->input('day'),
+        //     'telephone' => $request->input('telephone'),
+        //     'cellphone' => $request->input('cellphone'),
+        //     'address' => $request->input('address'),
+        //     'email' => $request->input('email'),
+        //     'url' => $request->input('url'),
+        //     'comment' => $request->input('comment'),
         // ];
-
-        // echo "Before create";
-        // dd($input);
-
         // User::create($input);
 
-        // echo "After create";
-        // dd($input);
-
-        return redirect(route('users'));
+        return redirect(route('users.index'));
     }
 
     /**

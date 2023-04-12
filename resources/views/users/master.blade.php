@@ -14,7 +14,7 @@
     <div class="row">
         <div class="col-2"></div>
         <div class="col-2">
-            <h5><a href="{{ route('users.create') }}">新增會員</a>&nbsp;&nbsp;<a>刪除被選取資料</a></h5>
+            <h5><a href="{{ url('users/create') }}">新增會員</a>&nbsp;&nbsp;<a>刪除被選取資料</a></h5>
         </div>
         <div class="col-8"></div>
     </div>

@@ -15,13 +15,21 @@
             會員管理系統 - 新增資料
         </div>
 
-        <form>
+        {{-- for testing --}}
+        {{-- @php
+            echo url('users/store') . "<br>";
+            echo route('users.store');
+        @endphp --}}
+
+        <form name="" action="{{ route('users.store') }}" method="POST" enctype="multipart/form-data">
+            @csrf
+
             <div class="row form-group">
                 <div class="col-2 px-3 g-2">
                     <label for="id" class="form-label">id</label>
                 </div>
                 <div class="col-10">
-                    <input type="text" class="form-control" id="id" disabled>
+                    <input type="text" class="form-control" name="id" disabled>
                 </div>
             </div>
 
@@ -30,7 +38,7 @@
                     <label for="account" class="form-label">帳號</label>
                 </div>
                 <div class="col-10">
-                    <input type="text" class="form-control" id="account">
+                    <input type="text" class="form-control" name="account">
                 </div>
             </div>
 
@@ -39,7 +47,7 @@
                     <label for="password" class="form-label">密碼</label>
                 </div>
                 <div class="col-10">
-                    <input type="password" class="form-control" id="password">
+                    <input type="password" class="form-control" name="password">
                 </div>
             </div>
             
@@ -48,7 +56,7 @@
                     <label for="name" class="form-label">姓名</label>
                 </div>
                 <div class="col-10">
-                    <input type="text" class="form-control" id="name">
+                    <input type="text" class="form-control" name="name">
                 </div>
             </div>
 
@@ -86,7 +94,7 @@
                 <div class="col-10">
                     <div class="row">
                         <div class="col-3">
-                            <div><input type="numeric" class="form-control" id="year"></div>
+                            <div><input type="numeric" class="form-control" name="year"></div>
                         </div>
 
                         <div class="col-4">
@@ -95,7 +103,7 @@
                                     <label for="month" class="form-label">/</label>
                                 </div>
                                 <div class="col-9 px-0">
-                                    <input type="numeric" class="form-control" id="month">
+                                    <input type="numeric" class="form-control" name="month">
                                 </div>
                             </div>
                         </div>
@@ -105,7 +113,7 @@
                                     <label for="day" class="form-label">/</label>
                                 </div>
                                 <div class="col-9 px-0">
-                                    <input type="numeric" class="form-control" id="day">
+                                    <input type="numeric" class="form-control" name="day">
                                 </div>
                             </div>
                         </div>
@@ -119,7 +127,7 @@
                     <label for="telephone" class="form-label">電話</label>
                 </div>
                 <div class="col-10">
-                    <input type="text" class="form-control" id="telephone">
+                    <input type="text" class="form-control" name="telephone">
                 </div>
             </div>
 
@@ -128,7 +136,7 @@
                     <label for="cellphone" class="form-label">手機</label>
                 </div>
                 <div class="col-10">
-                    <input type="text" class="form-control" id="cellphone">
+                    <input type="text" class="form-control" name="cellphone">
                 </div>
             </div>
 
@@ -137,7 +145,7 @@
                     <label for="address" class="form-label">地址</label>
                 </div>
                 <div class="col-10">
-                    <input type="text" class="form-control" id="address">
+                    <input type="text" class="form-control" name="address">
                 </div>
             </div>
 
@@ -146,7 +154,7 @@
                     <label for="email" class="form-label">電子郵件</label>
                 </div>
                 <div class="col-10">
-                    <input type="email" class="form-control" id="email">
+                    <input type="email" class="form-control" name="email">
                 </div>                
             </div>
 
@@ -155,7 +163,7 @@
                     <label for="url" class="form-label">網址</label>
                 </div>
                 <div class="col-10">
-                    <input type="url" class="form-control" id="url">
+                    <input type="url" class="form-control" name="url">
                 </div>                
             </div>
 
@@ -164,7 +172,7 @@
                     <label for="comment" class="form-label">備註</label>
                 </div>
                 <div class="col-10">
-                    <input type="textarea" rows="4" cols="50" class="form-control" id="comment">
+                    <input type="textarea" rows="4" cols="50" class="form-control" name="comment">
                 </div>                
             </div>
 
