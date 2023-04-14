@@ -10,20 +10,20 @@
     <title>會員管理系統</title>
 </head>
 <body>
-    <h1 align='center'>會員管理系統</h1>
-    <div class="row">
-        <div class="col-2"></div>
-        <div class="col-2">
-            <h5><a href="{{ url('users/create') }}">新增會員</a>&nbsp;&nbsp;<a>刪除被選取資料</a></h5>
+    <div class="container-fluid bg-info">
+        <h1 align='center'>會員管理系統</h1>
+        <div class="row">
+            <div class="col text-center">
+                <h5><a href="{{ url('users/create') }}">新增會員</a>&nbsp;&nbsp;<a href="#">刪除被選取資料</a></h5>
+            </div>
         </div>
-        <div class="col-8"></div>
-    </div>
-    <div class="row">
-        <div class="col">
-            @yield('content')
+        <div class="row">
+            <div class="col">
+                @yield('content')
+            </div>
         </div>
     </div>
-    
+
     {{-- <p>
     <table align=center border=1>
         <tr style="background-color:rgb(240, 240, 200)">
