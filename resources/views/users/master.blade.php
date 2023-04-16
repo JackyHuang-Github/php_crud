@@ -8,9 +8,24 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.rtl.min.css" integrity="sha384-5/ZcxA7Dub2FNG09dHw8CHmPN7Fz6ASlweagj0nuXjmMyupgH9n9F5Hd926zsu3/" crossorigin="anonymous">
 
     <title>會員管理系統</title>
+
+    <style>
+        table {
+            text-align: center;
+            border: 2px solid yellow;
+        }
+
+        tr th {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        tr td {
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+    </style>
 </head>
 <body>
-    <div class="container-fluid bg-info">
+    <div class="container-fluid">
         <h1 align='center'>會員管理系統</h1>
         <div class="row">
             <div class="col text-center">
@@ -25,7 +40,7 @@
     </div>
 
     {{-- <p>
-    <table align=center border=1>
+    <table>
         <tr style="background-color:rgb(240, 240, 200)">
             <th>序號</th>
             <th>帳號</th>
