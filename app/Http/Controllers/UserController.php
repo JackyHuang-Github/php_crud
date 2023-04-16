@@ -24,7 +24,6 @@ class UserController extends Controller
      */
     public function create()
     {
-        echo 'create'; 
         return view('users.create');
     }
 
@@ -69,6 +68,7 @@ class UserController extends Controller
         $user->comment = $request->comment;
         $user->save();
 
+        // 這段 code 只會產生 account ?????
         // $input = [
         //     'account' => $request->input('account'),
         //     'password' => $request->input('password'),
