@@ -1,6 +1,5 @@
 @extends('users.master')
 @section('content')
-
 <div class="row">
     <div class="col">
         <p>

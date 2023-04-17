@@ -1,16 +1,11 @@
-{{-- {!! Form::open(['action'=>'App\Http\Controllers\UserController@store', 'method'=>'post', 'files'=>true]) !!} --}}
-{{-- {!! Form::close() !!} --}}
-{{-- <form name="" action="App\Http\Controllers\UserController@store" method="post" class="comment-form" enctype="multipart/form-data">     --}}
-{{-- <form name="" action="{{ route('users.store') }}" method="post" class="comment-form" enctype="multipart/form-data">     --}}
-
-<div class="container">
-    <div class="row">
-        <div class="col">
-            <div class="card mt-3 mx-auto border-danger" style="width:500px;">
-                @include('users._form') 
-            </div>
-        </div>
-    </div>
+@extends('users._editbase')
+@section('content')
+<div class="card-header text-center">
+    <h2>會員管理系統 - 新增資料</h2>
+    <hr>
 </div>
-{{-- 
-
+<form name="" action="{{ route('users.store') }}" method="POST" enctype="multipart/form-data">
+    @csrf
+    @include('users._form') 
+</form>
+@endsection

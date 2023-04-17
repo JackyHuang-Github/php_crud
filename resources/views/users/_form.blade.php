@@ -1,29 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.rtl.min.css" integrity="sha384-5/ZcxA7Dub2FNG09dHw8CHmPN7Fz6ASlweagj0nuXjmMyupgH9n9F5Hd926zsu3/" crossorigin="anonymous">
-
-    <title>@yield('title')</title>
-</head>
-<body>
-    <div class="card-body">
-        <div class="card-header text-center">
-            會員管理系統 - 新增資料
-        </div>
-
-        {{-- for testing --}}
-        {{-- @php
-            echo url('users/store') . "<br>";
-            echo route('users.store');
-        @endphp --}}
-
-        <form name="" action="{{ route('users.store') }}" method="POST" enctype="multipart/form-data">
-            @csrf
-
             <div class="row form-group">
                 <div class="col-2 px-3 g-2">
                     <label for="id" class="form-label">id</label>
@@ -70,13 +44,13 @@
                             <div class="row">
                                 <div class="col-6">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="sex" id="男" checked>
+                                        <input class="form-check-input" type="radio" name="sex" value="男" checked>
                                         <label class="form-check-label" for="男">男</label>
                                     </div>
                                 </div>                        
                                 <div class="col-6">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="sex" id="女">
+                                        <input class="form-check-input" type="radio" name="sex" value="女">
                                         <label class="form-check-label" for="女">女</label>
                                     </div>
                                 </div>
@@ -183,43 +157,3 @@
                     <button type="submit" class="btn btn-primary">傳送</button>
                 </div>
             </div>
-        </form>
-    </div>
-
-    {{-- {!! Form::label('id', '序號') !!}
-    {!! Form::text('id', null) !!}<br>
-    {!! Form::label('account', '帳號') !!}
-    {!! Form::text('account', null) !!}<br>
-    {!! Form::label('password', '密碼') !!}
-    {!! Form::text('password', null) !!}<br>
-    {!! Form::label('name', '姓名') !!}
-    {!! Form::text('name', null) !!}<br>
-    {!! Form::label('sex', '性別') !!}
-    {!! Form::text('sex', null) !!}<br>
-    {!! Form::label('year', '年') !!}
-    {!! Form::text('year', null) !!}<br>
-    {!! Form::label('month', '月') !!}
-    {!! Form::text('month', null) !!}<br>
-    {!! Form::label('day', '日') !!}
-    {!! Form::text('day', null) !!}<br>
-    {!! Form::label('telephone', '電話') !!}
-    {!! Form::text('telephone', null) !!}<br>
-    {!! Form::label('cellphone', '手機') !!}
-    {!! Form::text('cellphone', null) !!}<br>
-    {!! Form::label('address', '住址') !!}
-    {!! Form::text('address', null) !!}<br>
-    {!! Form::label('email', '電子郵件') !!}
-    {!! Form::text('email', null) !!}<br>
-    {!! Form::label('url', '網址') !!}
-    {!! Form::text('url', null) !!}<br>
-    {!! Form::label('comment', '備註') !!}
-    {!! Form::text('comment', null) !!}<br> --}}
-
-    {{-- @if (isset($user))
-    {!! Form::hidden('id', $user->id) !!}
-    @endif     --}}
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
-</body>
-</html>
-

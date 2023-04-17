@@ -12,6 +12,7 @@
     <style>
         table {
             text-align: center;
+            /* text-align: left; */
             border: 2px solid yellow;
         }
 
@@ -38,41 +39,6 @@
             </div>
         </div>
     </div>
-
-    {{-- <p>
-    <table>
-        <tr style="background-color:rgb(240, 240, 200)">
-            <th>序號</th>
-            <th>帳號</th>
-            <th>密碼</th>
-            <th>姓名</th>
-            <th>性別</th>
-            <th>生日</th>
-            <th>電話</th>
-            <th>手機</th>
-            <th>住址</th>
-            <th>電子郵件</th>
-            <th>網址</th>
-            <th>備註</th>
-        </tr>
-        @foreach($users as $user)
-        <tr align=center>
-            <td>{{ $user->id }}</td>
-            <td>{{ $user->account }}</td>
-            <td>{{ $user->password }}</td>
-            <td>{{ $user->name }}</td>
-            <td>{{ $user->sex }}</td>
-            <td>{{ $user->year }}/{{ $user->month }}/{{ $user->day }}</td>
-            <td>{{ $user->telephone }}</td>
-            <td>{{ $user->cellphone }}</td>
-            <td>{{ $user->address }}</td>
-            <td>{{ $user->email }}</td>
-            <td>{{ $user->url }}</td>
-            <td>{{ $user->comment }}</td>
-        </tr>
-        @endforeach
-    </table>
-    </p> --}}
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
