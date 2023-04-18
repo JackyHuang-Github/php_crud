@@ -17,7 +17,12 @@
                 </div>
                 <div class="col-10">
                     @if (isset($user) && $user->id != null)
-                        <input type="text" class="form-control" name="account" value={{ $user->account }}>
+                        {{-- <input type="text" class="form-control" name="account" value={{ $user->account }} ($_POST['_method'] == 'DELETE') ? disabled : ""> --}}
+                        @if ($_POST['_method'] == 'DELETE')
+                            <input type="text" class="form-control" name="account" value={{ $user->account }} disabled>
+                        @else
+                            <input type="text" class="form-control" name="account" value={{ $user->account }}>
+                        @endif
                     @else
                         <input type="text" class="form-control" name="account">
                     @endif
@@ -30,7 +35,7 @@
                 </div>
                 <div class="col-10">
                     @if (isset($user) && $user->id != null)
-                        <input type="password" class="form-control" name="password" value={{ $user->password }}>
+                        <input type="password" class="form-control" name="password" value={{ $user->password }} @disabled(($_POST['_method'] == 'DELETE'))>
                     @else
                         <input type="password" class="form-control" name="password">
                     @endif
