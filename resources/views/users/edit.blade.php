@@ -4,7 +4,9 @@
     <h2>會員管理系統 - 修改資料</h2>
     <hr>
 </div>
-<form name="" action="{{ route('users.update', [ 'user' => $user]) }}" method="GET" enctype="multipart/form-data">
+<form name="" action="{{ route('users.update', ['user' => $user]) }}" method="POST" enctype="multipart/form-data">
+    @method('PUT')
+    <input type="hidden" name="_method" value="PUT">
     @csrf
     @include('users._form') 
 </form>

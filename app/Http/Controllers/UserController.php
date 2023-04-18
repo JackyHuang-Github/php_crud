@@ -110,21 +110,22 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        $user->account = $request->input('account');
-        $user->password = $request->input('password');
-        $user->name = $request->input('name');
-        $user->sex = $request->input('sex');
-        $user->year = $request->input('year');
-        $user->year = $request->input('month');
-        $user->year = $request->input('day');
-        $user->telephone = $request->input('telephone');
-        $user->cellphone = $request->input('cellphone');
-        $user->address = $request->input('address');
-        $user->email = $request->input('email');
-        $user->url = $request->input('url');
-        $user->comment = $request->input('comment');
+        $user->account = $request->account;
+        $user->password = $request->password;
+        $user->name = $request->name;
+        $user->sex = $request->sex;
+        $user->year = $request->year;
+        $user->month = $request->month;
+        $user->day = $request->day;
+        $user->telephone = $request->telephone;
+        $user->cellphone = $request->cellphone;
+        $user->address = $request->address;
+        $user->email = $request->email;
+        $user->url = $request->url;
+        $user->comment = $request->comment;
         $user->save();
-        return redirect(route('users.show', ['user' => $user]));
+
+        return redirect(route('users.index'));
     }
 
     /**
@@ -132,6 +133,7 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        $user = User::find(1);
+        $user->delete();
     }
 }
