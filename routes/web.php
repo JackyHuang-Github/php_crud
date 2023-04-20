@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,15 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('test1', 'App\Http\Controllers\UserController@delete1');
 Route::resource('users', 'App\Http\Controllers\UserController');
 Route::namespace('App\Http\Controllers')->group(function () {
     Route::get('/', 'UserController@index');
-    Route::get('users/destroy/{user}', 'UserController@destroy');
 });
 
-// Route::namespace('App\Http\Controllers')->group(function() {
-//     Route::get('/', 'UserController@index');
-//     Route::get('users', 'UserController@index');
-//     Route::get('users/create', 'UserController@create');
-//     Route::post('users/store', 'UserController@store');
+// Route::post('users/delete/{user}', function (App\Models\User $user) {
+//     return $user;
 // });
+

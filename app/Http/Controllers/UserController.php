@@ -141,4 +141,9 @@ class UserController extends Controller
         // return redirect(route('users.index'));
         return view('users.destroy', ['user' => $user]);
     }
+
+    public function delete1()
+    {
+       return 'run delete';
+    }
 }

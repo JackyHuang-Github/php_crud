@@ -36,8 +36,12 @@
                         <td>{{ $user->email }}</td>
                         <td>{{ $user->url }}</td>
                         <td>{{ $user->comment }}</td>
+
+                        {{ url('test1') }}
+                        {{ route('test1') }}
+
                         <td><a href="{{ url('users/' . $user->id . '/edit') }}" class="btn btn-success btn-sm">修改</a></td>
-                        <td><a href="{{ url('users/destroy/' . $user->id) }}" class="btn btn-success btn-sm">刪除</a></td>
+                        {{-- <td><a href="{{ route('test1') }}" class="btn btn-success btn-sm">刪除</a></td> --}}
                         <td><input type="checkbox" name="del[]" value={{ $user->id }}></td>
                     </tr>
                     @endforeach
