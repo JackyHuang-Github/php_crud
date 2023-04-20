@@ -95,6 +95,7 @@ class UserController extends Controller
     public function show(User $user)
     {
         echo 'run show()';
+
         return view('users.show', ['user' => $user]);
     }
 
@@ -132,12 +133,12 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy($id)
+    public function destroy($user)
     {
-        echo 'run destroy';
-
-        $user = User::find($id);
-        $user->delete();
-        return redirect(route('users.index'));
+        // view('users.destroy', ['user' => $user]);
+        // $user = User::find($id);
+        // $user->delete();
+        // return redirect(route('users.index'));
+        return view('users.destroy', ['user' => $user]);
     }
 }

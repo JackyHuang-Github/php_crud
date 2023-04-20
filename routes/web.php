@@ -14,8 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::resource('users', 'App\Http\Controllers\UserController');
-Route::namespace('App\Http\Controllers')->group(function() {
+Route::namespace('App\Http\Controllers')->group(function () {
     Route::get('/', 'UserController@index');
+    Route::get('users/destroy/{user}', 'UserController@destroy');
 });
 
 // Route::namespace('App\Http\Controllers')->group(function() {
@@ -24,5 +25,3 @@ Route::namespace('App\Http\Controllers')->group(function() {
 //     Route::get('users/create', 'UserController@create');
 //     Route::post('users/store', 'UserController@store');
 // });
-
-

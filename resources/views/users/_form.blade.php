@@ -3,10 +3,10 @@
                     <label for="id" class="form-label">id</label>
                 </div>
                 <div class="col-10">
-                    @if (isset($user) && $user->id != null)
-                        <input type="text" class="form-control" name="id" value={{ $user->id }} disabled>
+                    @if (isset($user) && !empty($user->id))
+                        <input type="text" class="form-control" name="id" value={{ $user->id }} readonly>
                     @else
-                        <input type="text" class="form-control" name="id" disabled>
+                        <input type="text" class="form-control" name="id" readonly>
                     @endif
                 </div>
             </div>
@@ -16,13 +16,13 @@
                     <label for="account" class="form-label">帳號</label>
                 </div>
                 <div class="col-10">
-                    @if (isset($user) && $user->id != null)
-                        {{-- <input type="text" class="form-control" name="account" value={{ $user->account }} ($_POST['_method'] == 'DELETE') ? disabled : ""> --}}
-                        @if ($_POST['_method'] == 'DELETE')
-                            <input type="text" class="form-control" name="account" value={{ $user->account }} disabled>
+                    @if (isset($user) && !empty($user->id))
+                        <input type="text" class="form-control" name="account" value={{ $user->account }} (($_POST['_method'] == 'DELETE') ? readonly : "")>
+                        {{-- @if ($_POST['_method'] == 'DELETE')
+                            <input type="text" class="form-control" name="account" value={{ $user->account }} readonly>
                         @else
                             <input type="text" class="form-control" name="account" value={{ $user->account }}>
-                        @endif
+                        @endif --}}
                     @else
                         <input type="text" class="form-control" name="account">
                     @endif
@@ -34,8 +34,9 @@
                     <label for="password" class="form-label">密碼</label>
                 </div>
                 <div class="col-10">
-                    @if (isset($user) && $user->id != null)
-                        <input type="password" class="form-control" name="password" value={{ $user->password }} @disabled(($_POST['_method'] == 'DELETE'))>
+                    @if (isset($user) && !empty($user->id))
+                        <input type="text" class="form-control" name="password" value={{ $user->password }} (($_POST['_method'] == 'DELETE') ? readonly : "")>
+                        {{-- <input type="password" class="form-control" name="password" value={{ $user->password }} @disabled(($_POST['_method'] == 'DELETE'))> --}}
                     @else
                         <input type="password" class="form-control" name="password">
                     @endif
@@ -47,8 +48,9 @@
                     <label for="name" class="form-label">姓名</label>
                 </div>
                 <div class="col-10">
-                    @if (isset($user) && $user->id != null)
-                        <input type="text" class="form-control" name="name" value={{ $user->name }}>
+                    @if (isset($user) && !empty($user->id))
+                        <input type="text" class="form-control" name="name" value={{ $user->name }} (($_POST['_method'] == 'DELETE') ? readonly : "")>
+                        {{-- <input type="text" class="form-control" name="name" value={{ $user->name }}> --}}
                     @else
                         <input type="text" class="form-control" name="name">
                     @endif
@@ -65,8 +67,14 @@
                             <div class="row">
                                 <div class="col-6">
                                     <div class="form-check">
-                                        @if (isset($user) && $user->id != null)
-                                            <input class="form-check-input" type="radio" name="sex" value="男" (({{ $user->sex }} == "男") ? checked : "")>
+                                        @if (isset($user) && !empty($user->id))
+                                            @if ($_POST['_method'] == 'DELETE')
+                                                <input type="radio" class="form-check-input" name="sex" value={{ $user->sex }} readonly>
+                                            @else
+                                                
+                                            @endif
+
+                                            <input type="radio" class="form-check-input" name="sex" value="男" (({{ $user->sex }} == "男") ? checked : "")>
                                         @else
                                             <input class="form-check-input" type="radio" name="sex" value="男" checked>
                                         @endif
@@ -75,7 +83,8 @@
                                 </div>                        
                                 <div class="col-6">
                                     <div class="form-check">
-                                        @if (isset($user) && $user->id != null)
+                                        <input type="radio" class="form-check-input" name="sex" value={{ $user->sex }} (($_POST['_method'] == 'DELETE') ? readonly : "")>
+                                        @if (isset($user) && !empty($user->id))
                                             <input class="form-check-input" type="radio" name="sex" value="男" (({{ $user->sex }} == "女") ? checked : "")>
                                         @else
                                             <input class="form-check-input" type="radio" name="sex" value="女">
@@ -97,7 +106,7 @@
                 <div class="col-10">
                     <div class="row">
                         <div class="col-3">
-                            @if (isset($user) && $user->id != null)
+                            @if (isset($user) && !empty($user->id))
                                 <input type="numeric" class="form-control" name="year" value={{ $user->year }}>
                             @else
                                 <input type="numeric" class="form-control" name="year">
@@ -110,7 +119,7 @@
                                     <label for="month" class="form-label">/</label>
                                 </div>
                                 <div class="col-9 px-0">
-                                    @if (isset($user) && $user->id != null)
+                                    @if (isset($user) && !empty($user->id))
                                         <input type="numeric" class="form-control" name="month" value={{ $user->month }}>
                                     @else
                                         <input type="numeric" class="form-control" name="month">
@@ -124,7 +133,7 @@
                                     <label for="day" class="form-label">/</label>
                                 </div>
                                 <div class="col-9 px-0">
-                                    @if (isset($user) && $user->id != null)
+                                    @if (isset($user) && !empty($user->id))
                                         <input type="numeric" class="form-control" name="day" value={{ $user->day }}>
                                     @else
                                         <input type="numeric" class="form-control" name="day">
@@ -142,7 +151,7 @@
                     <label for="telephone" class="form-label">電話</label>
                 </div>
                 <div class="col-10">
-                    @if (isset($user) && $user->id != null)
+                    @if (isset($user) && !empty($user->id))
                         <input type="text" class="form-control" name="telephone" value={{ $user->telephone }}>
                     @else
                         <input type="text" class="form-control" name="telephone">
@@ -155,7 +164,7 @@
                     <label for="cellphone" class="form-label">手機</label>
                 </div>
                 <div class="col-10">
-                    @if (isset($user) && $user->id != null)
+                    @if (isset($user) && !empty($user->id))
                         <input type="text" class="form-control" name="cellphone" value={{ $user->cellphone }}>
                     @else
                         <input type="text" class="form-control" name="cellphone">
@@ -168,7 +177,7 @@
                     <label for="address" class="form-label">地址</label>
                 </div>
                 <div class="col-10">
-                    @if (isset($user) && $user->id != null)
+                    @if (isset($user) && !empty($user->id))
                         <input type="text" class="form-control" name="address" value={{ $user->address }}>
                     @else
                         <input type="text" class="form-control" name="address">
@@ -181,7 +190,7 @@
                     <label for="email" class="form-label">電子郵件</label>
                 </div>
                 <div class="col-10">
-                    @if (isset($user) && $user->id != null)
+                    @if (isset($user) && !empty($user->id))
                         <input type="email" class="form-control" name="email" value={{ $user->email }}>
                     @else
                         <input type="email" class="form-control" name="email">
@@ -194,7 +203,7 @@
                     <label for="url" class="form-label">網址</label>
                 </div>
                 <div class="col-10">
-                    @if (isset($user) && $user->id != null)
+                    @if (isset($user) && !empty($user->id))
                         <input type="url" class="form-control" name="url" value={{ $user->url }}>
                     @else
                         <input type="url" class="form-control" name="url">
@@ -207,7 +216,7 @@
                     <label for="comment" class="form-label">備註</label>
                 </div>
                 <div class="col-10">
-                    @if (isset($user) && $user->id != null)
+                    @if (isset($user) && !empty($user->id))
                         <input type="textarea" rows="4" cols="50" class="form-control" name="comment" value={{ $user->comment }}>
                     @else
                         <input type="textarea" rows="4" cols="50" class="form-control" name="comment">
