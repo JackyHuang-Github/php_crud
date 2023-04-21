@@ -14,7 +14,6 @@ use App\Models\User;
 |
 */
 
-Route::get('test1', 'App\Http\Controllers\UserController@delete1');
 Route::resource('users', 'App\Http\Controllers\UserController');
 Route::namespace('App\Http\Controllers')->group(function () {
     Route::get('/', 'UserController@index');
@@ -24,3 +23,4 @@ Route::namespace('App\Http\Controllers')->group(function () {
 //     return $user;
 // });
 
+// Route::post('users/test1', 'App\Http\Controllers\UserController@delete1');

@@ -36,12 +36,20 @@
                         <td>{{ $user->email }}</td>
                         <td>{{ $user->url }}</td>
                         <td>{{ $user->comment }}</td>
+                        
 
-                        {{ url('test1') }}
-                        {{ route('test1') }}
+                        {{-- {{ route('users.destroy', ['user' => $user]) }} --}}
+
+                        {{-- {{ route('users.destroy', ['id' => $user->id]) }} --}}
+                        {{-- {{ url('users.destroy') . '/' . $user }} --}}
+                        {{-- {{ route('users.destroy') }} --}}
+                        {{-- {{ url('users.destroy') }} --}}
+
+                        {{-- {{ action(['App\Http\Controllers\UserController', 'store']) }}<br> --}}
+                        {{-- {{ route('contacts.destroy', $contact->id) }}                         --}}
 
                         <td><a href="{{ url('users/' . $user->id . '/edit') }}" class="btn btn-success btn-sm">修改</a></td>
-                        {{-- <td><a href="{{ route('test1') }}" class="btn btn-success btn-sm">刪除</a></td> --}}
+                        <td><a href="{{ route('users.destroy', ['user' => $user]) }}" class="btn btn-success btn-sm">刪除</a></td>
                         <td><input type="checkbox" name="del[]" value={{ $user->id }}></td>
                     </tr>
                     @endforeach
