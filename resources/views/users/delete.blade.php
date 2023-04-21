@@ -5,19 +5,17 @@
     <hr>
 </div>
 
+{{-- 傳遞刪除模式資訊給子頁面 _form --}}
 @section('methodMode')
-    @php 
+    @php
     $_method = "DELETE";
     @endphp
 @show
 
-@php
-    route('users.destroy', ['user' => $user])
-@endphp
-
-{{-- <form name="" action="{{ route('users.destroy', ['user' => $user]) }}" method="POST" enctype="multipart/form-data"> --}}
-<form name="" action="" method="POST" enctype="multipart/form-data">
+<form name="" action="{{ route('users.destroy', ['user' => $user]) }}" method="POST" enctype="multipart/form-data">
+    {{-- 設定 Action 為 DELETE --}}
     @method('DELETE')
+    {{-- 設定防禦 CSRF 的攻擊 --}}
     @csrf
     @include('users._form') 
 </form>

@@ -46,10 +46,9 @@
                         {{-- {{ url('users.destroy') }} --}}
 
                         {{-- {{ action(['App\Http\Controllers\UserController', 'store']) }}<br> --}}
-                        {{-- {{ route('contacts.destroy', $contact->id) }}                         --}}
 
                         <td><a href="{{ url('users/' . $user->id . '/edit') }}" class="btn btn-success btn-sm">修改</a></td>
-                        <td><a href="{{ route('users.destroy', ['user' => $user]) }}" class="btn btn-success btn-sm">刪除</a></td>
+                        <td><a href="{{ url('users/delete', ['id' => $user->id]) }}" class="btn btn-success btn-sm">刪除</a></td>
                         <td><input type="checkbox" name="del[]" value={{ $user->id }}></td>
                     </tr>
                     @endforeach

@@ -130,22 +130,18 @@ class UserController extends Controller
         return redirect(route('users.index'));
     }
 
+    public function delete($id)
+    {
+        $user = User::find($id);
+        return view('users.delete', compact('user'));
+    }
+
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(User $user)
-    // public function destroy($id)
     {
-        echo 'run destroy';
-
-        // view('users.destroy', ['user' => $user]);
-        // $user = User::find($id);
-        // $user->delete();
-        // return redirect(route('users.index'));
-    }
-
-    public function delete1()
-    {
-        return 'run delete';
+        $user->delete();
+        return redirect(route('users.index'));
     }
 }
