@@ -12,7 +12,7 @@
     @endphp
 @show
 
-<form name="_form" action="{{ route('users.destroy', ['user' => $user]) }}" method="POST" enctype="multipart/form-data">
+<form name="" action="{{ route('users.destroy', ['user' => $user]) }}" method="POST" enctype="multipart/form-data">
     {{-- 設定 Action 為 DELETE --}}
     @method('DELETE')
     {{-- 設定防禦 CSRF 的攻擊 --}}

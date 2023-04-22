@@ -10,24 +10,27 @@
     <title>會員管理系統</title>
 
     <style>
-        table tr th {
+        table {
+            text-align: center;
+            /* text-align: left; */
+            border: 2px solid yellow;
+        }
+
+        tr th {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        table tr td {
+        tr td {
             font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         }
     </style>
 </head>
 <body>
     <div class="container-fluid">
-        <div>
-            <h3 align='center'><span class="text-danger">會 員 管 理 系 統</span></h3>
-        </div>
+        <h1 align='center'>會員管理系統</h1>
         <div class="row">
-            <div class="col">
-                <a href="{{ url('users/create') }}" class="btn btn-primary btn-sm">新增會員</a>
-                <a href='#' class="btn btn-primary btn-sm">刪除被選取資料</a>
+            <div class="col text-center">
+                <h5><a href="{{ url('users/create') }}">新增會員</a>&nbsp;&nbsp;<a href="#">刪除被選取資料</a></h5>
             </div>
         </div>
         <div class="row">

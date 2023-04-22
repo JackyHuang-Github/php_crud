@@ -222,9 +222,16 @@
                 </div>                
             </div>
 
-            <div class="row card text-center">
+            <div class="row">
                 <div class="col">
-                    <button type="submit" class="btn btn-primary">傳送</button>
-                    <a href="{{ url('users') }}" class="btn btn-primary">回首頁</a>
+                    <div class="col justify-content-center">
+                        <button type="submit" class="btn btn-primary">傳送</button>
+                        <button type="button" class="btn btn-primary">
+                            <a href="{{ url('users') }}" 
+                                style="color: inherit; text-decoration: none;">
+                                回首頁
+                            </a>
+                        </button>
+                    </div>
                 </div>
             <div>

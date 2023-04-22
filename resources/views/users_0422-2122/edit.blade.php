@@ -12,7 +12,7 @@
     @endphp
 @show
 
-<form name="_form" action="{{ route('users.update', ['user' => $user]) }}" method="POST" enctype="multipart/form-data">
+<form name="" action="{{ route('users.update', ['user' => $user]) }}" method="POST" enctype="multipart/form-data">
     @method("PUT")
     @csrf
     @include('users._form') 

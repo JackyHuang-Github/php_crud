@@ -3,8 +3,8 @@
 <div class="row">
     <div class="col">
         <p>
-            <table class="table table-sm table-hover text-center table-bordered border-warning">
-                <thead class="align-middle">
+            <table class="table table-hover text-left table-bordered border-warning">
+                <thead>
                     <tr class="table-primary">
                         <th scope="col">序號</th>
                         <th scope="col">帳號</th>
@@ -36,9 +36,20 @@
                         <td>{{ $user->email }}</td>
                         <td>{{ $user->url }}</td>
                         <td>{{ $user->comment }}</td>
-                        <td class="align-middle"><a href="{{ url('users/' . $user->id . '/edit') }}" class="btn btn-success btn-sm">修改</a></td>
-                        <td class="align-middle"><a href="{{ url('users/delete', ['id' => $user->id]) }}" class="btn btn-success btn-sm">刪除</a></td>
-                        <td class="align-middle"><input type="checkbox" name="del[]" value={{ $user->id }}></td>
+                        
+
+                        {{-- {{ route('users.destroy', ['user' => $user]) }} --}}
+
+                        {{-- {{ route('users.destroy', ['id' => $user->id]) }} --}}
+                        {{-- {{ url('users.destroy') . '/' . $user }} --}}
+                        {{-- {{ route('users.destroy') }} --}}
+                        {{-- {{ url('users.destroy') }} --}}
+
+                        {{-- {{ action(['App\Http\Controllers\UserController', 'store']) }}<br> --}}
+
+                        <td><a href="{{ url('users/' . $user->id . '/edit') }}" class="btn btn-success btn-sm">修改</a></td>
+                        <td><a href="{{ url('users/delete', ['id' => $user->id]) }}" class="btn btn-success btn-sm">刪除</a></td>
+                        <td><input type="checkbox" name="del[]" value={{ $user->id }}></td>
                     </tr>
                     @endforeach
                 </tbody>
