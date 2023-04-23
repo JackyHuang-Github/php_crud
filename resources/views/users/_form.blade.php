@@ -1,4 +1,5 @@
-            @section('editMode')
+            {{-- @section('editMode') --}}
+            @section('methodMode')
             @parent
             @endsection
 
@@ -224,26 +225,30 @@
 
             <div class="row card text-center">
                 <div class="col">
-                    <button type="submit" class="btn btn-primary" name="submit1"></button>
                     <script>
-                        var $workString = "";
-                        switch ($_method) {
-                            case "POST":
-                                $workString = "新增資料";
-                                break;
-                            case "PUT":
-                                $workString = "修改資料";
-                                break;
-                            case "DELETE":
-                                $workString = "刪除資料";
-                                break;
-                            default:
-                                $workString = "新增資料";
-                                break;
-                        }
 
-                        document.getElementByName("submit1").textContent = $workString;
+                        console.log("$_method = " + $_method);
+                        let workString = "";
+                        function getWorkString(_method) {
+                            switch (_method) {
+                                case "POST":
+                                    workString = "新增資料";
+                                    break;
+                                case "PUT":
+                                    workString = "修改資料";
+                                    break;
+                                case "DELETE":
+                                    workString = "刪除資料";
+                                    break;
+                                default:
+                                    workString = "新增資料";
+                                    break;
+                            }
+                        }
+                        console.log(workString);
+                        document.getElementById("submit1").textContent = workString;
                     </script>
+                    <button type="submit" class="btn btn-primary" id="submit1" onload="getWorkString($_method)"></button>
                     <a href="{{ url('users') }}" class="btn btn-primary">回首頁</a>
                 </div>
             <div>
