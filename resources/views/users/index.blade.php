@@ -38,7 +38,7 @@
                         <td>{{ $user->comment }}</td>
                         <td class="align-middle"><a href="{{ url('users/' . $user->id . '/edit') }}" class="btn btn-success btn-sm">修改</a></td>
                         <td class="align-middle"><a href="{{ url('users/delete', ['id' => $user->id]) }}" class="btn btn-success btn-sm">刪除</a></td>
-                        <td class="align-middle"><input type="checkbox" name="del[]" value={{ $user->id }}></td>
+                        <td class="align-middle"><input type="checkbox" name="dels[]" value={{ $user->id }}></td>
                     </tr>
                     @endforeach
                 </tbody>

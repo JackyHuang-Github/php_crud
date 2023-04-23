@@ -5,7 +5,7 @@
     <hr>
 </div>
 
-{{-- 傳遞刪除模式資訊給子頁面 _form --}}
+{{-- 傳遞 POST 模式資訊給子頁面 _form --}}
 @section('methodMode')
     @php 
         $_method = "POST";

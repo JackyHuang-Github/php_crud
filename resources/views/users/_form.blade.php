@@ -224,7 +224,26 @@
 
             <div class="row card text-center">
                 <div class="col">
-                    <button type="submit" class="btn btn-primary">傳送</button>
+                    <button type="submit" class="btn btn-primary" name="submit1"></button>
+                    <script>
+                        var $workString = "";
+                        switch ($_method) {
+                            case "POST":
+                                $workString = "新增資料";
+                                break;
+                            case "PUT":
+                                $workString = "修改資料";
+                                break;
+                            case "DELETE":
+                                $workString = "刪除資料";
+                                break;
+                            default:
+                                $workString = "新增資料";
+                                break;
+                        }
+
+                        document.getElementByName("submit1").textContent = $workString;
+                    </script>
                     <a href="{{ url('users') }}" class="btn btn-primary">回首頁</a>
                 </div>
             <div>

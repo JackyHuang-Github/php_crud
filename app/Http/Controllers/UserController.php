@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 // use App\Http\Requests\UserRequest;
 use Illuminate\Support\Facades\Validator;
+use PHPUnit\TextUI\Configuration\Php;
 
 class UserController extends Controller
 {
@@ -134,6 +135,13 @@ class UserController extends Controller
     {
         $user = User::find($id);
         return view('users.delete', compact('user'));
+    }
+
+    public function deleteSelected(Request $request)
+    {
+        $ids = $request->input('dels');
+        User::wherein('id', $ids)->delete();
+        return redirect(route('users.index'));
     }
 
     /**
