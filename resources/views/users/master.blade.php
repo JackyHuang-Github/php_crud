@@ -43,7 +43,6 @@
 
     <script>
         function del_selected() {
-            // 注意：在 JavaScript 裡必須是兩個 \\ 才能被視為跳脫字元
             if(confirm('是否確定要刪除這些被選取的資料？ 刪除後將無法恢復！')) {
                 formMaster.submit(); 
             }

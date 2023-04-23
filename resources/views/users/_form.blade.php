@@ -1,8 +1,10 @@
-            {{-- @section('editMode') --}}
             @section('methodMode')
-            @parent
+                @parent
             @endsection
 
+            {{-- for testing --}}
+            {{-- {{ $_method }} --}}
+    
             <div class="row form-group">
                 <div class="col-2 px-3 g-2">
                     <label for="id" class="form-label">id</label>
@@ -225,30 +227,17 @@
 
             <div class="row card text-center">
                 <div class="col">
-                    <script>
-
-                        console.log("$_method = " + $_method);
-                        let workString = "";
-                        function getWorkString(_method) {
-                            switch (_method) {
-                                case "POST":
-                                    workString = "新增資料";
-                                    break;
-                                case "PUT":
-                                    workString = "修改資料";
-                                    break;
-                                case "DELETE":
-                                    workString = "刪除資料";
-                                    break;
-                                default:
-                                    workString = "新增資料";
-                                    break;
-                            }
-                        }
-                        console.log(workString);
-                        document.getElementById("submit1").textContent = workString;
-                    </script>
-                    <button type="submit" class="btn btn-primary" id="submit1" onload="getWorkString($_method)"></button>
+                    @if ($_method == "POST")
+                        <button type="submit" class="btn btn-primary">新增資料</button>
+                    @else
+                        @if ($_method == "PUT")
+                            <button type="submit" class="btn btn-primary">修改資料</button>
+                        @else
+                            @if ($_method == "DELETE")
+                                <button type="submit" class="btn btn-primary">刪除資料</button>
+                            @endif
+                        @endif
+                    @endif
                     <a href="{{ url('users') }}" class="btn btn-primary">回首頁</a>
                 </div>
             <div>
