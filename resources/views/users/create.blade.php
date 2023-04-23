@@ -13,6 +13,7 @@
 @show
 
 <form name="_form" action="{{ route('users.store') }}" method="POST" enctype="multipart/form-data">
+    {{-- 設定防禦 CSRF 的攻擊 --}}
     @csrf
     @include('users._form') 
 </form>

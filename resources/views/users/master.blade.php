@@ -21,13 +21,14 @@
 </head>
 <body>
     <div class="container-fluid">
+        {{-- <form align=center action='php_crud_delete_all.php' name='form1' method='POST'> --}}
         <div>
             <h3 align='center'><span class="text-danger">會 員 管 理 系 統</span></h3>
         </div>
         <div class="row">
             <div class="col">
                 <a href="{{ url('users/create') }}" class="btn btn-primary btn-sm">新增會員</a>
-                <a href='#' class="btn btn-primary btn-sm">刪除被選取資料</a>
+                <a href='#' class="btn btn-primary btn-sm" onclick="delall();">刪除被選取資料</a>
             </div>
         </div>
         <div class="row">
@@ -36,6 +37,16 @@
             </div>
         </div>
     </div>
+
+    <script>
+        function delall() {
+            // 注意：在 JavaScript 裡必須是兩個 \\ 才能被視為跳脫字元
+            if(confirm('\\n是否確定要刪除這些被選取的資料？\\n刪除後將無法恢復！\\n')) {
+                form1.submit(); 
+            }
+            return false;
+        }
+    </script>
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
