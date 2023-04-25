@@ -10,17 +10,20 @@ use PHPUnit\TextUI\Configuration\Php;
 
 class UserController extends Controller
 {
+    const recordsPerpage = 10;
+
     /**
      * Display a listing of the resource.
      */
     public function index()
+    // public function index($page_num)
     {
-        // 定義每頁 10 筆資料
-        define("RECORDS_PERPAGE", 10);
-
         // $users = User::all();
-        $users = User::paginate(RECORDS_PERPAGE);
+        $users = User::paginate(10);
         return view('users.index', compact('users'));
+
+        // $users = User::where('id', '<=', $page_num * 10)->paginate(10);
+        // return view('users.index', ['users' => $users]);        
     }
 
     /**
@@ -154,5 +157,11 @@ class UserController extends Controller
     {
         $user->delete();
         return redirect(route('users.index'));
+    }
+
+    public function page($page_num)
+    {
+        $users = User::where('id', '>', $page_num * recordsPerpage)->paginate(recordsPerpage);
+        return view('users.index', ['users' => $users]);        
     }
 }
