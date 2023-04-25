@@ -15,8 +15,11 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::all();
-        // dd($users);
+        // 定義每頁 10 筆資料
+        define("RECORDS_PERPAGE", 10);
+
+        // $users = User::all();
+        $users = User::paginate(RECORDS_PERPAGE);
         return view('users.index', compact('users'));
     }
 
