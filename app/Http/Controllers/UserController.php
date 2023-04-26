@@ -10,7 +10,7 @@ use PHPUnit\TextUI\Configuration\Php;
 
 class UserController extends Controller
 {
-    const recordsPerpage = 10;
+    const records_perpage = 10;
 
     /**
      * Display a listing of the resource.
@@ -19,7 +19,7 @@ class UserController extends Controller
     // public function index($page_num)
     {
         // $users = User::all();
-        $users = User::paginate(10);
+        $users = User::paginate(self::records_perpage);
         return view('users.index', compact('users'));
 
         // $users = User::where('id', '<=', $page_num * 10)->paginate(10);
@@ -161,7 +161,10 @@ class UserController extends Controller
 
     public function page($page_num)
     {
-        $users = User::where('id', '>', $page_num * recordsPerpage)->paginate(recordsPerpage);
+        $sorted = User::all()->sortBy('id');
+        // $users = $sorted->values()->all();
+        $users = User::where($sorted, '>', ($page_num - 1) * self::records_perpage)->where($sorted, '<=', $page_num * self::records_perpage)->paginate(self::records_perpage);
+
         return view('users.index', ['users' => $users]);        
     }
 }
