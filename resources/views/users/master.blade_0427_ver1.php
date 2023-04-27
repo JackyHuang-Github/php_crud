@@ -20,7 +20,7 @@
     </style>
 </head>
 <body>
-    <div class="container-fluid bg-secondary">
+    <div class="container-fluid bg-light-subtle">
         <div class="row">
             <div class="col">
                 <form align=center action="{{ url('users/deleteSelected') }}" name='formMaster' method='POST'>
