@@ -76,7 +76,7 @@
                                         @else
                                             <input class="form-check-input" type="radio" name="sex" id="sex_m" value="男" checked>
                                         @endif
-                                        <label class="form-check-label" {{ $_method == "DELETE" ? '' : 'for="sex_m"' }}>男</label>
+                                        <label class="form-check-label" for="sex_m">男</label>
                                     </div>
                                 </div>                        
                                 <div class="col-6">
@@ -90,7 +90,7 @@
                                         @else
                                             <input class="form-check-input" type="radio" name="sex" id="sex_f" value="女">
                                         @endif
-                                        <label class="form-check-label" {{ $_method == "DELETE" ? '' : 'for="sex_f"' }}>女</label>
+                                        <label class="form-check-label" for="sex_f">女</label>
                                     </div>
                                 </div>
                             </div>
