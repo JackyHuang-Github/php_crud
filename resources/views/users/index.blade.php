@@ -40,6 +40,9 @@
                     <td class="align-middle"><input type="checkbox" name="dels[]" value={{ $user->id }}></td>
                 </tr>
                 @endforeach
+
+                {{-- {{ $users->onEachSide(5)->links() }} --}}
+                {{ $users->links() }}
             </tbody>
         </table>
     </div>

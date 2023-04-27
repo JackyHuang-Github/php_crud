@@ -11,9 +11,9 @@
                 </div>
                 <div class="col-10">
                     @if (isset($user) && !empty($user->id))
-                        <input type="text" class="form-control" name="id" value={{ $user->id }} @readonly(true)>
+                        <input type="text" class="form-control" name="id" value={{ $user->id }} readonly>
                     @else
-                        <input type="text" class="form-control" name="id" @readonly(true)>
+                        <input type="text" class="form-control" name="id" readonly>
                     @endif
                 </div>
             </div>
@@ -24,7 +24,7 @@
                 </div>
                 <div class="col-10">
                     @if (isset($user) && !empty($user->id))
-                        <input type="text" class="form-control" name="account" value={{ $user->account }} @readonly($_method == "DELETE"))>
+                        <input type="text" class="form-control" name="account" value={{ $user->account }} {{ $_method == "DELETE" ? 'readonly' : '' }}>
                     @else
                         <input type="text" class="form-control" name="account">
                     @endif
@@ -37,7 +37,7 @@
                 </div>
                 <div class="col-10">
                     @if (isset($user) && !empty($user->id))
-                        <input type="text" class="form-control" name="password" value={{ $user->password }} @readonly($_method == "DELETE")>
+                        <input type="text" class="form-control" name="password" value={{ $user->password }} {{ $_method == "DELETE" ? 'readonly' : '' }}>
                     @else
                         <input type="password" class="form-control" name="password">
                     @endif
@@ -50,7 +50,7 @@
                 </div>
                 <div class="col-10">
                     @if (isset($user) && !empty($user->id))
-                        <input type="text" class="form-control" name="name" value={{ $user->name }} @readonly($_method == "DELETE")>
+                        <input type="text" class="form-control" name="name" value={{ $user->name }} {{ $_method == "DELETE" ? 'readonly' : '' }}>
                     @else
                         <input type="text" class="form-control" name="name">
                     @endif
@@ -69,28 +69,28 @@
                                     <div class="form-check">
                                         @if (isset($user) && !empty($user->id))
                                             @if ($_method == "DELETE")
-                                                <input type="radio" class="form-check-input" name="sex" value="男" (({{ $user->sex }} == "男") ? @checked(true) : @readonly(false)) @readonly(true)>
+                                                <input type="radio" class="form-check-input" name="sex" id="sex_m" value="男" {{ $user->sex == "男" ? 'checked' : ''}} readonly>
                                             @else
-                                                <input type="radio" class="form-check-input" name="sex" value="男" (({{ $user->sex }} == "男") ? @checked(true) : @readonly(false))>
+                                                <input type="radio" class="form-check-input" name="sex" id="sex_m" value="男" {{ $user->sex == "男" ? 'checked' : ''}}>
                                             @endif
                                         @else
-                                            <input class="form-check-input" type="radio" name="sex" value="男" @checked(true)>
+                                            <input class="form-check-input" type="radio" name="sex" id="sex_m" value="男" checked>
                                         @endif
-                                        <label class="form-check-label" for="男">男</label>
+                                        <label class="form-check-label" {{ $_method == "DELETE" ? '' : 'for="sex_m"' }}>男</label>
                                     </div>
                                 </div>                        
                                 <div class="col-6">
                                     <div class="form-check">
                                         @if (isset($user) && !empty($user->id))
                                             @if ($_method == "DELETE")
-                                                <input class="form-check-input" type="radio" name="sex" value="女" (({{ $user->sex }} == "女") ? @checked(true) : @readonly(false)) @readonly(true)>
+                                                <input class="form-check-input" type="radio" name="sex" id="sex_f" value="女" {{ $user->sex == "女" ? 'checked' : ''}} readonly>
                                             @else
-                                                <input class="form-check-input" type="radio" name="sex" value="女" (({{ $user->sex }} == "女") ? @checked(true) : @readonly(false))>
+                                                <input class="form-check-input" type="radio" name="sex" id="sex_f" value="女" {{ $user->sex == "女" ? 'checked' : ''}}>
                                             @endif
                                         @else
-                                            <input class="form-check-input" type="radio" name="sex" value="女">
+                                            <input class="form-check-input" type="radio" name="sex" id="sex_f" value="女">
                                         @endif
-                                        <label class="form-check-label" for="女">女</label>
+                                        <label class="form-check-label" {{ $_method == "DELETE" ? '' : 'for="sex_f"' }}>女</label>
                                     </div>
                                 </div>
                             </div>
@@ -108,7 +108,7 @@
                     <div class="row">
                         <div class="col-3">
                             @if (isset($user) && !empty($user->id))
-                                <input type="numeric" class="form-control" name="year" value={{ $user->year }} @readonly($_method == "DELETE")>
+                                <input type="numeric" class="form-control" name="year" value={{ $user->year }} {{ $_method == "DELETE" ? 'readonly' : '' }}>
                             @else
                                 <input type="numeric" class="form-control" name="year">
                             @endif
@@ -121,7 +121,7 @@
                                 </div>
                                 <div class="col-9 px-0">
                                     @if (isset($user) && !empty($user->id))
-                                        <input type="numeric" class="form-control" name="month" value={{ $user->month }} @readonly($_method == "DELETE")>
+                                        <input type="numeric" class="form-control" name="month" value={{ $user->month }} {{ $_method == "DELETE" ? 'readonly' : '' }}>
                                     @else
                                         <input type="numeric" class="form-control" name="month">
                                     @endif
@@ -135,7 +135,7 @@
                                 </div>
                                 <div class="col-9 px-0">
                                     @if (isset($user) && !empty($user->id))
-                                        <input type="numeric" class="form-control" name="day" value={{ $user->day }} @readonly($_method == "DELETE")>
+                                        <input type="numeric" class="form-control" name="day" value={{ $user->day }} {{ $_method == "DELETE" ? 'readonly' : '' }}>
                                     @else
                                         <input type="numeric" class="form-control" name="day">
                                     @endif
@@ -153,7 +153,7 @@
                 </div>
                 <div class="col-10">
                     @if (isset($user) && !empty($user->id))
-                        <input type="text" class="form-control" name="telephone" value={{ $user->telephone }} @readonly($_method == "DELETE")>
+                        <input type="text" class="form-control" name="telephone" value={{ $user->telephone }} {{ $_method == "DELETE" ? 'readonly' : '' }}>
                     @else
                         <input type="text" class="form-control" name="telephone">
                     @endif
@@ -166,7 +166,7 @@
                 </div>
                 <div class="col-10">
                     @if (isset($user) && !empty($user->id))
-                        <input type="text" class="form-control" name="cellphone" value={{ $user->cellphone }} @readonly($_method == "DELETE")>
+                        <input type="text" class="form-control" name="cellphone" value={{ $user->cellphone }} {{ $_method == "DELETE" ? 'readonly' : '' }}>
                     @else
                         <input type="text" class="form-control" name="cellphone">
                     @endif
@@ -179,7 +179,7 @@
                 </div>
                 <div class="col-10">
                     @if (isset($user) && !empty($user->id))
-                        <input type="text" class="form-control" name="address" value={{ $user->address }} @readonly($_method == "DELETE")>
+                        <input type="text" class="form-control" name="address" value={{ $user->address }} {{ $_method == "DELETE" ? 'readonly' : '' }}>
                     @else
                         <input type="text" class="form-control" name="address">
                     @endif
@@ -192,7 +192,7 @@
                 </div>
                 <div class="col-10">
                     @if (isset($user) && !empty($user->id))
-                        <input type="email" class="form-control" name="email" value={{ $user->email }} @readonly($_method == "DELETE")>
+                        <input type="email" class="form-control" name="email" value={{ $user->email }} {{ $_method == "DELETE" ? 'readonly' : '' }}>
                     @else
                         <input type="email" class="form-control" name="email">
                     @endif
@@ -205,7 +205,7 @@
                 </div>
                 <div class="col-10">
                     @if (isset($user) && !empty($user->id))
-                        <input type="url" class="form-control" name="url" value={{ $user->url }} @readonly($_method == "DELETE")>
+                        <input type="url" class="form-control" name="url" value={{ $user->url }} {{ $_method == "DELETE" ? 'readonly' : '' }}>
                     @else
                         <input type="url" class="form-control" name="url">
                     @endif
@@ -218,7 +218,7 @@
                 </div>
                 <div class="col-10">
                     @if (isset($user) && !empty($user->id))
-                        <input type="textarea" rows="4" cols="50" class="form-control" name="comment" value={{ $user->comment }} @readonly($_method == "DELETE")>
+                        <input type="textarea" rows="4" cols="50" class="form-control" name="comment" value={{ $user->comment }} {{ $_method == "DELETE" ? 'readonly' : '' }}>
                     @else
                         <input type="textarea" rows="4" cols="50" class="form-control" name="comment">
                     @endif

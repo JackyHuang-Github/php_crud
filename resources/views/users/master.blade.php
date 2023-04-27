@@ -36,7 +36,7 @@
                             <a href="{{ url('users/create') }}" class="btn btn-primary btn-sm">新增會員</a>
                             <a href='#' class="btn btn-primary btn-sm" onclick="del_selected();">刪除被選取資料</a>
                         </div>
-                        <div class="col-10">
+                        {{-- <div class="col-10">
                             <ul class="pagination justify-content-end m-0 p-0">
                                 <li class="page-item">
                                     <a class="page-link" href="#" aria-label="Previous">
@@ -54,7 +54,7 @@
                                     </a>
                                 </li>
                             </ul>
-                        </div>
+                        </div> --}}
                     </div>
                     <div class="row">
                         <div class="col">

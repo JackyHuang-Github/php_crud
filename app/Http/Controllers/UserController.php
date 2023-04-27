@@ -5,25 +5,22 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 // use App\Http\Requests\UserRequest;
-use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\DB;
 use PHPUnit\TextUI\Configuration\Php;
+use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
+    // 定義每頁顯示的資料筆數
     const records_perpage = 10;
 
     /**
      * Display a listing of the resource.
      */
     public function index()
-    // public function index($page_num)
     {
-        // $users = User::all();
         $users = User::paginate(self::records_perpage);
         return view('users.index', compact('users'));
-
-        // $users = User::where('id', '<=', $page_num * 10)->paginate(10);
-        // return view('users.index', ['users' => $users]);        
     }
 
     /**
@@ -159,12 +156,17 @@ class UserController extends Controller
         return redirect(route('users.index'));
     }
 
-    public function page($page_num)
-    {
-        $sorted = User::all()->sortBy('id');
-        // $users = $sorted->values()->all();
-        $users = User::where($sorted, '>', ($page_num - 1) * self::records_perpage)->where($sorted, '<=', $page_num * self::records_perpage)->paginate(self::records_perpage);
+    // public function page($page_num)
+    // {
+    //     if ($page_num > 1) {
+    //         $start_row = ($page_num - 1) * self::records_perpage;
+    //         if ($start_row < 0) $start_row = 1;
+    //         $users = User::all();
+    //         $users = $users->skip($start_row)->take(self::records_perpage)->all();
+    //     } else {
+    //         $users = User::paginate(self::records_perpage);
+    //     }
 
-        return view('users.index', ['users' => $users]);        
-    }
+    //     return view('users.index', ['users' => $users]);
+    // }
 }
