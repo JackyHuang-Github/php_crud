@@ -6,15 +6,13 @@
 </div>
 
 {{-- 傳遞 DELETE 模式資訊給子頁面 _form --}}
-{{-- @section('methodMode') --}}
-@section('php_variables')
+@section('methodMode')
     @php
         $_method = "DELETE";
-        $is_delete = "N";
     @endphp
 @show
 
-<form action="{{ route('users.destroy', ['user' => $user, 'is_delete' => $is_delete]) }}" method="POST" enctype="multipart/form-data" name="delete_form">
+<form action="{{ route('users.destroy', ['user' => $user]) }}" method="POST" enctype="multipart/form-data" name="delete_form">
     {{-- 設定 Action 為 DELETE --}}
     @method("DELETE")
     {{-- 設定防禦 CSRF 的攻擊 --}}

@@ -150,25 +150,9 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(User $user, $is_delete)
+    public function destroy(User $user)
     {
-        if ($is_delete == 'Y') {
-            $user->delete();
-        }
+        $user->delete();
         return redirect(route('users.index'));
     }
-
-    // public function page($page_num)
-    // {
-    //     if ($page_num > 1) {
-    //         $start_row = ($page_num - 1) * self::records_perpage;
-    //         if ($start_row < 0) $start_row = 1;
-    //         $users = User::all();
-    //         $users = $users->skip($start_row)->take(self::records_perpage)->all();
-    //     } else {
-    //         $users = User::paginate(self::records_perpage);
-    //     }
-
-    //     return view('users.index', ['users' => $users]);
-    // }
 }

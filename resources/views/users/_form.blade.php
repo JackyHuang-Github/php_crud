@@ -223,7 +223,9 @@
                 </div>                
             </div>
 
-            <div class="row card text-center">
+            <hr>
+
+            <div class="row text-center border-0">
                 <div class="col">
                     @if ($_method == "POST")
                         <button type="submit" class="btn btn-primary">新增資料</button>
@@ -232,32 +234,11 @@
                             <button type="submit" class="btn btn-primary">修改資料</button>
                         @else
                             @if ($_method == "DELETE")
-                                {{-- <button type="submit" class="btn btn-primary" onclock="return confirm('是否確定要刪除這些被選取的資料？ 刪除後將無法恢復！');">刪除資料</button> --}}
-                                <input type="hidden" name="is_delete" value="N">
-                                <button type="submit" class="btn btn-primary btnSubmit">刪除資料</button>
+                                {{-- <input type="hidden" name="is_delete" value="N"> --}}
+                                <button type="submit" class="btn btn-primary" onclick="return confirm('是否確定要刪除資料？ 刪除後將無法恢復！');">刪除資料</button>
                             @endif
                         @endif
                     @endif
                     <a href="{{ url('users') }}" class="btn btn-primary">回首頁</a>
                 </div>
             <div>
-              
-            <script>
-                var btn_submit = document.querySelector(".btnSubmit");
-                var ipt_is_delete = document.getElementByName("is_delete");
-
-                function is_delete() {
-                    if (window.confirm('是否確定要刪除這些被選取的資料？ 刪除後將無法恢復！') == true) {
-                        ipt_is_delete.value = "Y";
-                        $is_delete = "Y";
-                        delete_form.submit();
-                    }
-                    else {
-                        ipt_is_delete.value = "N";
-                        $is_delete = "N";
-                        return false;
-                    }
-                }
-
-                btn_submit.addEventListener('click', is_delete);
-            </script>                
